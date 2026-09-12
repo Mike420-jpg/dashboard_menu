@@ -1,24 +1,45 @@
-
-import { IonPage, IonContent, IonButtons, IonMenuButton, IonHeader, IonToolbar, IonTitle} from '@ionic/react';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
 
 const Dev: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-       <IonButtons slot="start">
-            <IonMenuButton />
+
+      <IonHeader className="ion-no-border">
+        <IonToolbar className="[--background:#fff] [--min-height:60px]">
+
+          <IonButtons slot="start">
+            <IonMenuButton menu="main-menu" className="[--color:#e89a9f]"/>
           </IonButtons>
-           <IonTitle>Dashboard</IonTitle>
-    </IonToolbar>
+           <div
+            className="
+              pointer-events-none
+              absolute left-1/2 top-1/2
+              -translate-x-1/2 -translate-y-1/2
+            "
+          >
+            <img
+              src="/ScentTop1.png"
+              alt="ScenTop"
+              className="h-20 w-20 object-contain"
+            />
+          </div>
+
+        </IonToolbar>
       </IonHeader>
 
-      <IonContent className="ion-padding">
-        <h1>Developers Page</h1>
-        <p>This is the Developers page content.</p>
+      <IonContent className="[--background:#fffafa] ion-padding">
       </IonContent>
+
     </IonPage>
   );
-}
+};
 
 export default Dev;

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import {
-  IonPage, IonHeader, IonToolbar, IonButtons, IonButton, IonIcon, IonContent,
+  IonPage, IonHeader, IonToolbar, IonButtons, IonButton, IonIcon, IonContent, IonMenuButton
 } from '@ionic/react';
 import {
   menuOutline, searchOutline, arrowBackOutline, shareSocialOutline, diamondOutline,
 } from 'ionicons/icons';
-import './styles/Products.css';
+import '../styles/Product.css';
 
 interface Product {
   id: string;
@@ -13,8 +13,7 @@ interface Product {
   size: string;
   price: number;
   imageUrl: string;
-  description: string;
-  notes: string;
+
 }
 
 const bestSellers: Product[] = [
@@ -24,8 +23,7 @@ const bestSellers: Product[] = [
     size: '50 ml',
     price: 229,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNVQBrx009_rquzelh-6Dm7sSDxYOeXC4A81WZ-ucH6g&s=10',
-    description: 'A warm, gourmand amber scent layered with vanilla and soft musk for an inviting everyday signature.',
-    notes: 'Amber, Vanilla, Musk',
+
   },
   {
     id: 'floris-somnium',
@@ -33,8 +31,6 @@ const bestSellers: Product[] = [
     size: '50 ml',
     price: 249,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdhSxTugubOB01f3OkVZ9XCMuDq9VUVki9E_7_QJ4pUP85F7F72R9BcVU&s=10',
-    description: 'A rich amber-spice blend built for evenings, opening bright before settling into a warm, resinous base.',
-    notes: 'Bergamot, Amber, Spices',
   },
 ];
 
@@ -45,8 +41,6 @@ const justArrived: Product[] = [
     size: '50 ml',
     price: 109,
     imageUrl: 'https://i.ebayimg.com/images/g/NV8AAOSwdV9kRM60/s-l1200.jpg',
-    description: 'A crisp, airy fragrance with citrus and aquatic accords, made for light everyday wear.',
-    notes: 'Citrus, Sea Salt, White Musk',
   },
   {
     id: 'harene-de-lumiere',
@@ -54,8 +48,7 @@ const justArrived: Product[] = [
     size: '50 ml',
     price: 219,
     imageUrl: 'https://diynaturally.co.za/wp-content/uploads/2022/06/Clover-30ml-Perfume-Bottle.jpg',
-    description: 'A sun-warmed floral scent with a soft, sandy base note, evoking golden light on skin.',
-    notes: 'Neroli, Sandalwood, Honey',
+
   },
 ];
 
@@ -66,8 +59,6 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => (
     </div>
     <div className="product-card__name">{product.name}</div>
     <div className="product-card__size">{product.size}</div>
-    <p className="product-card__description">{product.description}</p>
-    <div className="product-card__notes">Notes: {product.notes}</div>
     <div className="product-card__price">${product.price.toFixed(2)}</div>
   </div>
 );
@@ -78,23 +69,6 @@ const HomeScreen: React.FC<{ onSeeAll: (section: 'Best Sellers' | 'Just Arrived'
   onSeeAll,
 }) => (
   <>
-    <IonHeader className="app-header ion-no-border">
-      <IonToolbar>
-        <IonButtons slot="start">
-          <IonButton>
-            <IonIcon icon={menuOutline} />
-          </IonButton>
-        </IonButtons>
-        <div className="app-header__logo">
-          <IonIcon icon={diamondOutline} />
-        </div>
-        <IonButtons slot="end">
-          <IonButton>
-            <IonIcon icon={searchOutline} />
-          </IonButton>
-        </IonButtons>
-      </IonToolbar>
-    </IonHeader>
 
     <IonContent className="app-content" fullscreen>
       <section className="section">
@@ -112,7 +86,7 @@ const HomeScreen: React.FC<{ onSeeAll: (section: 'Best Sellers' | 'Just Arrived'
         </div>
       </section>
 
-      <section className="section">
+      <section className="section pt-10">
         <div className="section__heading">
           <h1>Just Arrived</h1>
           <button className="pill-btn" onClick={() => onSeeAll('Just Arrived', justArrived)}>
@@ -174,11 +148,34 @@ const AllScreen: React.FC<{ section: string; products: Product[]; onBack: () => 
   </>
 );
 
-const Scentop_Products: React.FC = () => {
+const Product: React.FC = () => {
   const [view, setView] = useState<View>({ name: 'home' });
 
   return (
     <IonPage className="scentop">
+      
+      <IonHeader className="ion-no-border">
+        <IonToolbar className="[--background:#fff] [--min-height:60px]">
+
+          <IonButtons slot="start">
+            <IonMenuButton menu="main-menu" className="[--color:#e89a9f]"/>
+          </IonButtons>
+           <div
+            className="
+              pointer-events-none
+              absolute left-1/2 top-1/2
+              -translate-x-1/2 -translate-y-1/2
+            "
+          >
+            <img
+              src="/ScentTop1.png"
+              alt="ScenTop"
+              className="h-20 w-20 object-contain"
+            />
+          </div>
+
+        </IonToolbar>
+      </IonHeader>
       {view.name === 'home' ? (
         <HomeScreen
           onSeeAll={(section, products) => setView({ name: 'all', section, products })}
@@ -194,4 +191,4 @@ const Scentop_Products: React.FC = () => {
   );
 };
 
-export default Scentop_Products;
+export default Product;
