@@ -110,23 +110,6 @@ const AllScreen: React.FC<{ section: string; products: Product[]; onBack: () => 
   onBack,
 }) => (
   <>
-    <IonHeader className="app-header ion-no-border">
-      <IonToolbar>
-        <IonButtons slot="start">
-          <IonButton onClick={onBack}>
-            <IonIcon icon={arrowBackOutline} />
-          </IonButton>
-        </IonButtons>
-        <div className="app-header__logo">
-          <IonIcon icon={diamondOutline} />
-        </div>
-        <IonButtons slot="end">
-          <IonButton>
-            <IonIcon icon={shareSocialOutline} />
-          </IonButton>
-        </IonButtons>
-      </IonToolbar>
-    </IonHeader>
 
     <IonContent className="app-content" fullscreen>
       <section className="section">
@@ -155,7 +138,7 @@ const Product: React.FC = () => {
     <IonPage className="scentop">
       
       <IonHeader className="ion-no-border">
-        <IonToolbar className="[--background:#fff] [--min-height:60px]">
+        <IonToolbar className="[--background:#fff]">
 
           <IonButtons slot="start">
             <IonMenuButton menu="main-menu" className="[--color:#e89a9f]"/>
@@ -170,7 +153,7 @@ const Product: React.FC = () => {
             <img
               src="/ScentTop1.png"
               alt="ScenTop"
-              className="h-20 w-20 object-contain"
+              className="h-15 w-15 object-contain"
             />
           </div>
 

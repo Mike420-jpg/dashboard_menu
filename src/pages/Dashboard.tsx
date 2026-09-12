@@ -12,7 +12,7 @@ const Dashboard: React.FC = () => {
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
-        <IonToolbar className="[--background:#fff] [--min-height:60px]">
+        <IonToolbar className="[--background:#fff]">
           <IonButtons slot="start">
             <IonMenuButton menu="main-menu" className="[--color:#e89a9f]" />
           </IonButtons>
@@ -26,7 +26,7 @@ const Dashboard: React.FC = () => {
             <img
               src="/ScentTop1.png"
               alt="ScenTop"
-              className="h-20 w-20 object-contain"
+              className="h-15 w-15 object-contain"
             />
           </div>
         </IonToolbar>
