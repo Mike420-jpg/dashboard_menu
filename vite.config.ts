@@ -1,14 +1,14 @@
-/// <reference types="vitest" />
+// <reference types="vitest" />
 
-import legacy from '@vitejs/plugin-legacy'
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    legacy()
+    tailwindcss(),
   ],
   test: {
     globals: true,
