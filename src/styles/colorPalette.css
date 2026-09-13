@@ -1,0 +1,17 @@
+:root {
+    /*Primary Colors*/
+    --primary-color: goldenrod;
+    --secondary-color: #013239;
+    --tertiary-color: #66247c;
+    --quartenary-color: #741e27;
+
+    /* Main color palette */
+    --title-header: #474747;
+    --description: #919191;
+    --buttons-icon: #FFC1CC;
+    --bg-main: #FFFBED;
+    
+    --bg-surface: #0c2742;
+    --text-black: #000000;
+    --text-white: #ffffff;
+}

@@ -4,7 +4,6 @@ import {
   IonHeader,
   IonMenuButton,
   IonPage,
-  IonTitle,
   IonToolbar,
 } from "@ionic/react";
 
@@ -12,6 +11,9 @@ import { register } from 'swiper/element/bundle';
 register(); 
 
 import {  } from 'ionicons/icons';
+
+import '../styles/Dashboard.css';
+import '../styles/colorPalette.css';
 
 const Dashboard: React.FC = () => {
   return (
@@ -37,13 +39,21 @@ const Dashboard: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="[--background:#fffafa]">
+      <IonContent className="body">
+        <div className="title">
+          <h1>
+            ScenTop
+          </h1>
+        </div>
+
         <swiper-container
           slides-per-view="1"
           space-between="10"
           pagination="true"
           navigation="true"
           loop="true"
+          className="dashboard-carousel"
+          autoplay="true"
         >
           <swiper-slide>
             <img
@@ -70,8 +80,44 @@ const Dashboard: React.FC = () => {
           </swiper-slide>
         </swiper-container>
 
-        <h1>Experience the Essence of <br /> Luxury Perfumes</h1>
+        <div className="descriptor">
+          <h1><strong>Experience the Essence of <br /> Luxury Perfumes</strong></h1>
+        </div>
 
+        
+        <div className="shop-section">
+
+          <h3 className="shop-title"><strong>SHOP FOR</strong></h3>
+        
+          <div className="divider"></div>
+
+          <div className="shopcard-container">
+
+            {/* Men */}
+            <div className="shopcard">
+              <img
+                src="./public/PerfumeMen.png"
+                alt="Men's Perfume"
+              />
+
+              <div className="shopcard-title">
+                <h3>Men's Perfume</h3>
+              </div>
+            </div>
+
+            {/* Women */}
+            <div className="shopcard">
+              <img
+                src="./public/PerfumeWomen.png"
+                alt="Women's Perfume"
+              />
+
+              <div className="shopcard-title">
+                <h3>Women's Perfume</h3>
+              </div>
+            </div>
+          </div>
+        </div>
       </IonContent>
     </IonPage>
   );
