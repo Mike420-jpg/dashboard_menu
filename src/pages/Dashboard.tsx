@@ -7,6 +7,9 @@ import {
   IonToolbar,
 } from "@ionic/react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareFacebook, faSquareInstagram, faXTwitter} from "@fortawesome/free-brands-svg-icons";
+
 import { register } from 'swiper/element/bundle';
 register(); 
 
@@ -118,6 +121,24 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
         </div>
+
+        <footer className="Footer">
+          <div className="footer-container">
+            <a href="">back to top</a>
+          </div>
+          <div className="footer-content">
+            <div className="divider"/>
+            <div className="contacts">
+              <IonButtons className="contact-btn"><FontAwesomeIcon icon={faSquareFacebook}/></IonButtons>
+              <IonButtons className="contact-btn"><FontAwesomeIcon icon={faXTwitter}/></IonButtons>
+              <IonButtons className="contact-btn"><FontAwesomeIcon icon={faSquareInstagram}/></IonButtons>
+            </div>
+            <div className="add-info">
+
+            </div>
+            <p>ScentTop@gmail.com</p>
+          </div>
+        </footer>
       </IonContent>
     </IonPage>
   );
